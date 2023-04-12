@@ -31,11 +31,29 @@ int main() {
 
 	fout << std::endl;
 
-	while (!fin.eof()) {
-		fin >> s;
-		fout << s << "  ";
+	int n2 = std::stoi(s);
+	fout << n2 << std::endl;
+	int* mas2 = new int[n2];
+
+	for (int i = 0; i < n2; i++) {
+		fin >> mas2[i];
 	}
+
+	int temp2;
+	temp2 = mas2[n - 1];
+	for (int i = n - 1; i > 0; i--) {
+		mas2[i] = mas2[i - 1];
+	}
+	mas2[0] = temp2;
+
+	for (int i = 0; i < n; i++) {
+		fout << mas2[i] << "  ";
+	}
+
+	fout << std::endl;
+
 	delete[] mas;
+	delete[] mas2;
 
 	fin.close();
 	fout.close();
